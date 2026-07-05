@@ -36,7 +36,7 @@ public class EdgeCasesTest extends BaseTest {
         productsPage.spamClickAddToCart(6);
         Assert.assertEquals(productsPage.getCartCount(), 0);
     }
-    @Test(description = "TC-005: Products page should work on mobile viewport")
+    @Test(description = "TC-004: Products page should work on mobile viewport")
     public void productsPageWorksOnMobile() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("standard_user", "secret_sauce");
@@ -46,7 +46,7 @@ public class EdgeCasesTest extends BaseTest {
         productsPage.addBackpackToCart();
         Assert.assertEquals(productsPage.getCartCount(), 1);
     }
-    @Test(description = "TC-008: Fast navigation should not break app state")
+    @Test(description = "TC-005: Fast navigation should not break app state")
     public void fastNavigationDoesNotBreakState() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("standard_user", "secret_sauce");
