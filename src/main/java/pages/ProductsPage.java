@@ -7,6 +7,10 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 
 public class ProductsPage {
@@ -90,5 +94,44 @@ public class ProductsPage {
     public CartPage goToCart() {
         driver.findElement(cartIcon).click();
         return new CartPage(driver);
+    }
+    private final By addToCartBackpack = By.cssSelector("button[data-test='add-to-cart-sauce-labs-backpack']");
+    private final By removeFromCartBackpack = By.cssSelector("button[data-test='remove-sauce-labs-backpack']");
+
+    public void addBackpackToCart() {
+        driver.findElement(addToCartBackpack).click();
+    }
+
+    public void spamClickAddToCart(int clicks) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        for (int i = 0; i < clicks; i++) {
+            List<WebElement> addButtons = driver.findElements(addToCartBackpack);
+            if (!addButtons.isEmpty()) {
+                addButtons.get(0).click();
+                wait.until(d -> !d.findElements(removeFromCartBackpack).isEmpty());
+            } else {
+                driver.findElements(removeFromCartBackpack).get(0).click();
+                wait.until(d -> !d.findElements(addToCartBackpack).isEmpty());
+            }
+        }
+    }
+
+    public int getCartCount() {
+        List<WebElement> badges = driver.findElements(cartBadge);
+        return badges.isEmpty() ? 0 : Integer.parseInt(badges.get(0).getText());
+    }
+
+
+    public void resizeWindow(int width, int height) {
+        driver.manage().window().setSize(new Dimension(width, height));
+    }
+
+    public void navigateFastBetweenProductsAndCart(int times) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        for (int i = 0; i < times; i++) {
+            driver.findElement(cartIcon).click();
+            driver.navigate().back();
+            wait.until(d -> !d.findElements(By.id("inventory_container")).isEmpty());
+        }
     }
 }
