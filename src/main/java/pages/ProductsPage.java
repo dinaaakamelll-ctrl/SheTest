@@ -24,6 +24,8 @@ public class ProductsPage {
     private final By pageTitle = By.className("title");
     private final By cartBadge = By.className("shopping_cart_badge");
     private final By cartIcon = By.className("shopping_cart_link");
+    private final By addToCartBackpack = By.cssSelector("button[data-test='add-to-cart-sauce-labs-backpack']");
+    private final By removeFromCartBackpack = By.cssSelector("button[data-test='remove-sauce-labs-backpack']");
 
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
@@ -95,8 +97,7 @@ public class ProductsPage {
         driver.findElement(cartIcon).click();
         return new CartPage(driver);
     }
-    private final By addToCartBackpack = By.cssSelector("button[data-test='add-to-cart-sauce-labs-backpack']");
-    private final By removeFromCartBackpack = By.cssSelector("button[data-test='remove-sauce-labs-backpack']");
+
 
     public void addBackpackToCart() {
         driver.findElement(addToCartBackpack).click();
