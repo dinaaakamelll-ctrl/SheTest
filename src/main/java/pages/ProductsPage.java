@@ -4,11 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
@@ -20,8 +20,8 @@ public class ProductsPage {
     private final By inventoryItems = By.className("inventory_item");
     private final By productNames = By.className("inventory_item_name");
     private final By productPrices = By.className("inventory_item_price");
-    private final By sortDropdown = By.cssSelector("select[data-test='product_sort_container']");
     private final By pageTitle = By.className("title");
+    private final By sortDropdown = By.cssSelector("select[data-test='product-sort-container']");
     private final By cartBadge = By.className("shopping_cart_badge");
     private final By cartIcon = By.className("shopping_cart_link");
     private final By addToCartBackpack = By.cssSelector("button[data-test='add-to-cart-sauce-labs-backpack']");
@@ -56,7 +56,11 @@ public class ProductsPage {
 
 
     public void sortBy(String option) {
-        Select select = new Select(driver.findElement(sortDropdown));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement dropdownElement = wait.until(
+                ExpectedConditions.presenceOfElementLocated(sortDropdown)
+        );
+        Select select = new Select(dropdownElement);
         select.selectByVisibleText(option);
     }
 
