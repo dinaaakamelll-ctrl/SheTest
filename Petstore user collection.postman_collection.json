@@ -1,0 +1,312 @@
+{
+  "info": {
+    "_postman_id": "821e1b79-3e98-4865-a276-c0c305d3e266",
+    "name": "Petstore user collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53205095",
+    "_collection_link": "https://go.postman.co/collection/53205095-821e1b79-3e98-4865-a276-c0c305d3e266?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create user",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 1000,\r\n  \"username\": \"king\",\r\n  \"firstName\": \"youmna\",\r\n  \"lastName\": \"Gamal\",\r\n  \"email\": \"joe@gmail.com\",\r\n  \"password\": \"123\",\r\n  \"phone\": \"498725647\",\r\n  \"userStatus\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/user",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "user"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get user by username",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/user/king",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "user",
+            "king"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create list of users with given input array",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\r\n  {\r\n    \"id\": 1001,\r\n    \"username\": \"test1234\",\r\n    \"firstName\": \"joe1\",\r\n    \"lastName\": \"Biden1\",\r\n    \"email\": \"joe1@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"phone\": \"98763561\",\r\n    \"userStatus\": 1\r\n  },\r\n{\r\n    \"id\": 1002,\r\n    \"username\": \"test12345\",\r\n    \"firstName\": \"joe2\",\r\n    \"lastName\": \"Biden2\",\r\n    \"email\": \"joe2@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"phone\": \"123763561\",\r\n    \"userStatus\": 1\r\n  }\r\n\r\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/user/createWithList",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "user",
+            "createWithList"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create list of users using given input array2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\r\n  {\r\n    \"id\": 1003,\r\n    \"username\": \"king1\",\r\n    \"firstName\": \"joe3\",\r\n    \"lastName\": \"Biden3\",\r\n    \"email\": \"joe3@gmail.com\",\r\n    \"password\": \"456\",\r\n    \"phone\": \"123456\",\r\n    \"userStatus\": 1\r\n  },\r\n  {\r\n    \"id\": 1004,\r\n    \"username\": \"king2\",\r\n    \"firstName\": \"joe4\",\r\n    \"lastName\": \"Biden4\",\r\n    \"email\": \"joe4@gmail.com\",\r\n    \"password\": \"456\",\r\n    \"phone\": \"123456789\",\r\n    \"userStatus\": 0\r\n  }\r\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/user/createWithArray",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "user",
+            "createWithArray"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Updated user",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": 1003,\r\n    \"username\": \"king1\",\r\n    \"firstName\": \"bro\",\r\n    \"lastName\": \"jhon\",\r\n    \"email\": \"joe3@gmail.com\",\r\n    \"password\": \"2000\",\r\n    \"phone\": \"123456\",\r\n    \"userStatus\": 0\r\n  }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/user/king1",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "user",
+            "king1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete user",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/user/test12345",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "user",
+            "test12345"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Log user into the system",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/user/login?username=king&password=123",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "user",
+            "login"
+          ],
+          "query": [
+            {
+              "key": "username",
+              "value": "king"
+            },
+            {
+              "key": "password",
+              "value": "123"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Log out current logged in user session",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/user/logout",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "user",
+            "logout"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

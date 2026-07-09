@@ -1,0 +1,321 @@
+{
+  "info": {
+    "_postman_id": "073e3d58-90eb-48fd-9150-b71ecad26ae9",
+    "name": "Pet collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53205095",
+    "_collection_link": "https://go.postman.co/collection/53205095-073e3d58-90eb-48fd-9150-b71ecad26ae9?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Add a new pet to store",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 100,\r\n  \"category\": {\r\n    \"id\": 1,\r\n    \"name\": \"Gray\"\r\n  },\r\n  \"name\": \" Gray doggie\",\r\n  \"photoUrls\": [\r\n    \"https://drive.google.com/file/d/1GrOceHiF6MSy7Ke7XjyFze4xfgWplBIo/view?usp=sharing\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 10,\r\n      \"name\": \"master\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upload an image",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text"
+          },
+          {
+            "key": "",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "additionalMetadata",
+              "value": "pet is cute",
+              "type": "text",
+              "uuid": "aa3549c8-b190-4dce-903b-a1bbb39ae8d0"
+            },
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "62e9171f-4472-4e7e-bb8d-6f3c97d7e4f3",
+              "src": "postman-cloud:///1f179750-4290-4e10-814f-ab0c918ee16e"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet/100/uploadImage",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet",
+            "100",
+            "uploadImage"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Find pets by status",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet/findByStatus?status=available",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet",
+            "findByStatus"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "available"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Find pet by ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet/100",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet",
+            "100"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update an existing pet",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": 100,\r\n    \"category\": {\r\n        \"id\": 1,\r\n        \"name\": \"Gray\"\r\n    },\r\n    \"name\": \" Gray1\",\r\n    \"photoUrls\": [\r\n        \"https://drive.google.com/file/d/1GrOceHiF6MSy7Ke7XjyFze4xfgWplBIo/view?usp=sharing\"\r\n    ],\r\n    \"tags\": [\r\n        {\r\n            \"id\": 10,\r\n            \"name\": \"joker\"\r\n        }\r\n    ],\r\n    \"status\": \"available\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Updates a pet in the store with form data",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "name",
+              "value": "formal",
+              "type": "text",
+              "uuid": "b73b408e-70c7-4106-9a0e-430d2bb7ba80"
+            },
+            {
+              "key": "status",
+              "value": "pending",
+              "type": "text",
+              "uuid": "f4cf3137-7757-44bf-b019-ed58ddb21089"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet/100",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet",
+            "100"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete a pet",
+      "request": {
+        "auth": {
+          "type": "apikey",
+          "apikey": [
+            {
+              "key": "value",
+              "value": "special-key",
+              "type": "string"
+            },
+            {
+              "key": "key",
+              "value": "api_key",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "name",
+              "value": "formal",
+              "type": "text",
+              "uuid": "b73b408e-70c7-4106-9a0e-430d2bb7ba80"
+            },
+            {
+              "key": "status",
+              "value": "pending",
+              "type": "text",
+              "uuid": "f4cf3137-7757-44bf-b019-ed58ddb21089"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet/100",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet",
+            "100"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
